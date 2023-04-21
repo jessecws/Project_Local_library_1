@@ -1,6 +1,10 @@
+// Find an account from the accounts list from on ID
+
 function findAccountById(accounts, id) {
   return accounts.find(account => account.id === id);
 }
+
+// Sort accounts by last name
 
 function sortAccountsByLastName(accounts) {
  return accounts.sort((a, b) => {
@@ -16,6 +20,8 @@ function sortAccountsByLastName(accounts) {
  });
 }
 
+// For a single account get the total number of books borrowed
+
 function getTotalNumberOfBorrows(account, books) {
   let total = 0;
   books.forEach(book => {
@@ -29,6 +35,9 @@ function getTotalNumberOfBorrows(account, books) {
   return total
 }
 
+// Looking at the list of books determine how many books is loaned to a
+// specific account.
+
 function getBooksPossessedByAccount(account, books, authors) {
   const accountId = account.id;
   const possessedBooks = [];
@@ -41,33 +50,6 @@ function getBooksPossessedByAccount(account, books, authors) {
   });
   return possessedBooks
 }
-
-// function getBooksPossessedByAccount(account, books, authors) {
-//   let booksBorrowed = [];
-//   let extendedBooksBorrowed = [];
-//   books.forEach(book => {
-//     const borrowers = book.borrows
-//     borrowers.forEach(borrower => {
-//       if (borrower.id === account.id) {
-//         booksBorrowed.push(book)
-//       }
-//     });
-//   });
-//   booksBorrowed.forEach(borrowedBook => {
-//     let bookAuthor = authors.find((author) => author.id === borrowedBook.authorId);
-//     let template = {
-//     id: borrowedBook.id,
-//     title: borrowedBook.title,
-//     genre: borrowedBook.genre,
-//     authorId: borrowedBook.authorId,
-//     author: bookAuthor,
-//     borrows: borrowedBook.borrows,
-//     };
-//     extendedBooksBorrowed.push(template);
-//   });
-//   // console.log(extendedBooksBorrowed)
-//   return extendedBooksBorrowed
-// }
 
 module.exports = {
   findAccountById,
